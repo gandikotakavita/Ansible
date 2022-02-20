@@ -1,0 +1,29 @@
+---
+- name: docker
+  hosts: 18.222.153.173
+
+  become: yes
+  tasks:
+    - name: updating repos
+      yum:
+        name: "*"
+        state: latest
+    - name: Installing required docker
+      yum:
+        name: docker
+        state: present
+    - name: Downloading docker
+      get_url:
+        url: "https://download.docker.com/linux/static/stable/aarch64/docker-20.10.9.tgz"
+        dest: /usr/bin/
+        mode: 0644
+
+    - name: " Installing Docker latest version"
+      yum:
+        name: docker
+        state: present
+    - name: " Starting and Enabling Docker service"
+      service:
+        name: docker
+        state: started
+        enabled: yes
