@@ -8,6 +8,7 @@
       yum:
         name: "*"
         state: latest
+
     - name: Installing required docker
       yum:
         name: docker
