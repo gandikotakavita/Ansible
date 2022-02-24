@@ -1,6 +1,6 @@
 ---
 - name: docker
-  hosts: 18.222.153.173
+  hosts: 3.141.196.237
 
   become: yes
   tasks:
